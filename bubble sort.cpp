@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+
+void bbsort(int data[], int s) {
+    for (int i = 0; i < s - 1; i++){
+        bool tukar = false;
+        for (int j = s - 1; j > i; j--){
+            if (data [j] < data [j-1]){
+                int temp = data [j];
+                data [j] = data [j-1];
+                data [j-1] = temp;
+                tukar = true;
+            }   
+        }
+        if (!tukar) break;
+    }
+}
+
+int main() {
+    int arr[] = {5, 2, 9, 1, 5};
+    int n = sizeof(arr)/sizeof(arr[0]);
+
+    bbsort(arr, n);
+
+    cout << "Array setelah diurutkan: ";
+    for (int i = 0; i < n; i++)
+        cout << arr[i] << " ";
+    cout << endl;
+    system ("pause");
+    return 0;
+}
